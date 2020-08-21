@@ -104,10 +104,10 @@ export const previewText = {
       body:
         "Make low interest-only payments while you study and for three months after completing your program.",
     },
-    // {
-    //   heading: "Immediate Repayment",
-    //   body: "Start paying your loan back one month after your program begins.",
-    // },
+    {
+      heading: "Immediate Repayment",
+      body: "Start paying your loan back one month after your program begins.",
+    },
     // {
     //   heading: "36-Month Loan",
     //   // body:
@@ -129,9 +129,9 @@ export const faq = {
   costOfLivingPrograms: "", // leave as empty string is cost of living availability is the same across all programs
   multCostOfLivingPrograms: false, // true if costOfLivingPrograms string has more than one program
   interestOnly: true, // true if interest-only payments are an option
-  immediateRepayment: false, // true if immediate repayment is an option
+  immediateRepayment: true, // true if immediate repayment is an option
   multipleLoanLengths: true, // true if 36 and 60 month options are both available
-  multipleLoanTypes: false, // true if both IR and IO are available
+  multipleLoanTypes: true, // true if both IR and IO are available
   multiPrograms: true, // only true if there are multiple programs
   onlinePrograms: false, // true if at least one program is remote/online
   schoolHQState: "WA",
@@ -149,14 +149,44 @@ export const faq = {
   // max loan amounts by program for faq1
   loanRange: [
     {
-      programName: "the Cybersecurity Penetration Testing program",
+      programName: "the Cybersecurity Penetration Testing Part-Time program",
       maxAmount: "$18,000",
+      col: false,
+      colAmount: "$4,500",
+    },
+    {
+      programName: "the Cybersecurity Penetration Testing Full-Time program",
+      maxAmount: "$18,000",
+      col: true,
+      colAmount: "$4,500",
+    },
+    {
+      programName: "the Cybersecurity Core Part-Time program",
+      maxAmount: "$13,000",
+      col: false,
+      colAmount: "$4,500",
+    },
+    {
+      programName: "the Cybersecurity Core Full-Time program",
+      maxAmount: "$13,000",
       col: true,
       colAmount: "$4,500",
     },
     {
       programName: "the Data Science Immersive program",
       maxAmount: "$17,000",
+      col: true,
+      colAmount: "$4,500",
+    },
+    {
+      programName: "the Risk Management Part-Time program",
+      maxAmount: "$18,000",
+      col: false,
+      colAmount: "$4,500",
+    },
+    {
+      programName: "the Risk Management Full-Time program",
+      maxAmount: "$18,000",
       col: true,
       colAmount: "$4,500",
     },
@@ -217,8 +247,208 @@ export const moreThanSixPrograms = false // set to true if there are 7 or more p
 export const programLoanInfo = [
   // update with program names and corresponding loan URLs with market segment code from Master Loan Parameters
   {
-    name: "Cyber Security",
+    name: "Risk Management Part-Time",
+    url: "https://my.skills.fund/application?lenderCode=SKDVRMPT17",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 22500,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        // interest-only
+        k: 8,
+        apr36: 11.42,
+        apr60: 12.76,
+      },
+      "Immediate Repayment": null, // immediate repayment
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
+    showLoanTypes: false, // true if both IR and IO are available
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2", "Metro 3"],
+    metros: [
+      // list in same order as locations array above
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // // match loanInfo to Program 1 above
+          maxLoanAmt: 22500,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 8,
+            apr36: 11.42,
+            apr60: 12.76,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Risk Management Full-Time",
+    url: "https://my.skills.fund/application?lenderCode=SKDVRM17",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 22500,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        // interest-only
+        k: 8,
+        apr36: 11.42,
+        apr60: 12.76,
+      },
+      "Immediate Repayment": null, // immediate repayment
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
+    showLoanTypes: false, // true if both IR and IO are available
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2", "Metro 3"],
+    metros: [
+      // list in same order as locations array above
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // // match loanInfo to Program 1 above
+          maxLoanAmt: 22500,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 8,
+            apr36: 11.42,
+            apr60: 12.76,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Cybersecurity Pen Testing Full-Time",
     url: "https://my.skills.fund/application?lenderCode=SKDVCP17",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 22500,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        // interest-only
+        k: 8,
+        apr36: 11.42,
+        apr60: 12.76,
+      },
+      "Immediate Repayment": null, // immediate repayment
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
+    showLoanTypes: false, // true if both IR and IO are available
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2", "Metro 3"],
+    metros: [
+      // list in same order as locations array above
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // // match loanInfo to Program 1 above
+          maxLoanAmt: 22500,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 8,
+            apr36: 11.42,
+            apr60: 12.76,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Cybersecurity Pen Testing Part-Time",
+    url: "https://my.skills.fund/application?lenderCode=SKCVCPPT17",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 22500,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        // interest-only
+        k: 8,
+        apr36: 11.42,
+        apr60: 12.76,
+      },
+      "Immediate Repayment": null, // immediate repayment
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
+    showLoanTypes: false, // true if both IR and IO are available
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2", "Metro 3"],
+    metros: [
+      // list in same order as locations array above
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // // match loanInfo to Program 1 above
+          maxLoanAmt: 22500,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 8,
+            apr36: 11.42,
+            apr60: 12.76,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Cybersecurity Core Part-Time",
+    url: "https://my.skills.fund/application?lenderCode=SKDVCCPT17",
+    loanInfo: {
+      // match loanInfo in first metro below
+      maxLoanAmt: 22500,
+      loanTerm36: true,
+      loanTerm60: true,
+      "Interest Only": {
+        // interest-only
+        k: 8,
+        apr36: 11.42,
+        apr60: 12.76,
+      },
+      "Immediate Repayment": null, // immediate repayment
+    },
+    defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
+    showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
+    showLoanTypes: false, // true if both IR and IO are available
+    loanTypes: ["Interest Only"],
+    locations: ["Metro 1", "Metro 2", "Metro 3"],
+    metros: [
+      // list in same order as locations array above
+      {
+        location: "Metro 1",
+        loanInfo: {
+          // // match loanInfo to Program 1 above
+          maxLoanAmt: 22500,
+          loanTerm36: true,
+          loanTerm60: true,
+          "Interest Only": {
+            k: 8,
+            apr36: 11.42,
+            apr60: 12.76,
+          },
+          "Immediate Repayment": null,
+        },
+      },
+    ],
+  },
+  {
+    name: "Cybersecurity Core Full-Time",
+    url: "https://my.skills.fund/application?lenderCode=SKDVCC17",
     loanInfo: {
       // match loanInfo in first metro below
       maxLoanAmt: 22500,
@@ -261,33 +491,35 @@ export const programLoanInfo = [
     url: "https://my.skills.fund/application?lenderCode=SKDVDS17",
     loanInfo: {
       // match loanInfo in first metro below
-      maxLoanAmt: 21500,
+      maxLoanAmt: 22500,
       loanTerm36: true,
       loanTerm60: true,
       "Interest Only": {
-        k: 6,
-        apr36: 11.59,
-        apr60: 12.84,
+        // interest-only
+        k: 8,
+        apr36: 11.42,
+        apr60: 12.76,
       },
-      "Immediate Repayment": null,
+      "Immediate Repayment": null, // immediate repayment
     },
     defaultLoanType: "Interest Only", // leave at 0 for interest-only, set to 1 for immediate repayment
-    showMetros: false,
-    showLoanTypes: false,
+    showMetros: false, // true if there are multiple metros with different tuition amounts for the same program
+    showLoanTypes: false, // true if both IR and IO are available
     loanTypes: ["Interest Only"],
-    locations: ["Metro 1", "Metro 2"],
+    locations: ["Metro 1", "Metro 2", "Metro 3"],
     metros: [
+      // list in same order as locations array above
       {
         location: "Metro 1",
         loanInfo: {
-          // match loanInfo to Program 2 loanInfo above
-          maxLoanAmt: 21500,
+          // // match loanInfo to Program 1 above
+          maxLoanAmt: 22500,
           loanTerm36: true,
           loanTerm60: true,
           "Interest Only": {
-            k: 6,
-            apr36: 11.59,
-            apr60: 12.84,
+            k: 8,
+            apr36: 11.42,
+            apr60: 12.76,
           },
           "Immediate Repayment": null,
         },
